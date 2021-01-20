@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Янв 20 2021 г., 12:58
+-- Время создания: Янв 20 2021 г., 14:30
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- База данных: `education`
 --
+CREATE DATABASE IF NOT EXISTS `education` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `education`;
 
 -- --------------------------------------------------------
 
