@@ -1,20 +1,20 @@
 -- 
-INSERT INTO `city` 
+INSERT INTO `cities`( `name`, `post_index` ) 
 VALUE 
 ( 'Краматорск', 84313 ),
 ( 'Марьинка', 85600 );
 
 -- 
-DELETE FROM `news`;
+DELETE FROM `news` WHERE 1;
 
 -- 
 SELECT `name`, `surname` FROM `students`;
 
 -- 
-SELECT `name` FROM `students`
+SELECT * FROM `users`
 
 -- 
-UPDATE `city` SET `name`= 'Славянск',`post_index`= 11111 WHERE `name` = 'Краматорск';
+UPDATE `cities` SET `number`= 5, `status`= 'middle' WHERE 1;
 
 --
-SELECT `name`, `post_index` FROM `city`
+SELECT `number`, `date_sale` FROM `certificates`

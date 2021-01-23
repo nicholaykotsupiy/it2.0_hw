@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Янв 21 2021 г., 17:36
+-- Время создания: Янв 23 2021 г., 12:36
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -18,101 +18,6 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `query_db`
---
-CREATE DATABASE IF NOT EXISTS `query_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `query_db`;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `city`
---
-
-CREATE TABLE `city` (
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `post_index` mediumint(8) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `city`
---
-
-INSERT INTO `city` (`name`, `post_index`) VALUES
-('Славянск', 11111),
-('Марьинка', 85600);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `news`
---
-
-CREATE TABLE `news` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `students`
---
-
-CREATE TABLE `students` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `surname` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `students`
---
-
-INSERT INTO `students` (`id`, `name`, `surname`) VALUES
-(1, 'eger', 'ergerg'),
-(2, 'xzzzz', 'qqq'),
-(3, 'yuyu', 'yyyg');
-
---
--- Индексы сохранённых таблиц
---
-
---
--- Индексы таблицы `city`
---
-ALTER TABLE `city`
-  ADD PRIMARY KEY (`post_index`);
-
---
--- Индексы таблицы `news`
---
-ALTER TABLE `news`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `students`
---
-ALTER TABLE `students`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT для сохранённых таблиц
---
-
---
--- AUTO_INCREMENT для таблицы `news`
---
-ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT для таблицы `students`
---
-ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
 -- База данных: `shops`
 --
 CREATE DATABASE IF NOT EXISTS `shops` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -125,22 +30,22 @@ USE `shops`;
 --
 
 CREATE TABLE `regions` (
-  `id` int(27) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `shops`
+-- Структура таблицы `stores`
 --
 
-CREATE TABLE `shops` (
-  `id` smallint(5) UNSIGNED NOT NULL,
+CREATE TABLE `stores` (
+  `id` int(10) UNSIGNED NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `region` smallint(5) UNSIGNED NOT NULL,
-  `FIO_head` int(11) NOT NULL,
-  `telephone` tinyint(12) UNSIGNED NOT NULL,
+  `region` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `FIO_head` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telephone` varchar(13) COLLATE utf8mb4_unicode_ci NOT NULL,
   `create_date` date NOT NULL DEFAULT current_timestamp(),
   `type_shop` enum('Cупермаркет','Гипермаркет') COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -156,9 +61,9 @@ ALTER TABLE `regions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `shops`
+-- Индексы таблицы `stores`
 --
-ALTER TABLE `shops`
+ALTER TABLE `stores`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -169,13 +74,13 @@ ALTER TABLE `shops`
 -- AUTO_INCREMENT для таблицы `regions`
 --
 ALTER TABLE `regions`
-  MODIFY `id` int(27) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT для таблицы `shops`
+-- AUTO_INCREMENT для таблицы `stores`
 --
-ALTER TABLE `shops`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `stores`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
