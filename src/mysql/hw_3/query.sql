@@ -62,3 +62,9 @@ SELECT surname FROM students WHERE YEAR(birthday) = 1995
 SELECT publish_date, body 
 FROM publishes 
 LIMIT 5;
+
+-- 12
+
+SELECT region_id, COUNT(id) 
+FROM shools 
+GROUP BY region_id;
