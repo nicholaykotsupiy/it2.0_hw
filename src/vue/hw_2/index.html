@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <!-- 1 -->
+        <div class="w-11/12 mx-auto py-6">
+            <header 
+                @click="hidden = !hidden"
+                class="bg-blue-500 rounded-t-xl block py-2 px-2 text-white text-lg cursor-pointer hover:bg-blue-800"
+                >
+                News
+            </header>
+            <main v-if="hidden" class="bg-gray-200 block py-2 px-2 rounded-b-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel velit nihil voluptatibus fuga consequatur delectus explicabo facilis atque cum sed?</main>
+        </div>
+
+        <!-- 2 -->
+        <div class="w-11/12 mx-auto py-6">
+            <span>User List: </span>
+            <div v-for="user in users" :key="user.id">
+                <div class="bg-gray-100 rounded-xl block py-2 px-2 text-lg font-bold border-b-2 cursor-pointer hover:bg-gray-200">
+                    {{ user.name }}
+                </div>
+            </div>
+            <!-- 3 -->
+            <div class="py-2 px-2 text-lg">
+                Имена последних 3-х зарегестрированных пользователей пользователей:  {{ topUsers }} 
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="w-11/12 mx-auto py-6">
+            <span>Этот инпут будет очищен из другого Vue приложения</span>
+            <input type="text" v-model="value" class="border border-black ml-4">
+            <div :class="{ 'text-red-700' : maxSymbolNotification }">Количество введённых символов: {{ countSimbols }}/20</div>
+        </div>
+        <!-- 6 -->
+        <div class="w-11/12 mx-auto py-6">
+            <input ref="inputRef" type="text" class="border border-black">
+            <input type="button" value="Click" class="cursor-pointer ml-4" @click="symbolsAlert">
+        </div>
+    </div>
+
+    <!-- 5 -->
+    <div id="inspector" class="text-center py-12">
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./script/index.js"></script>
+</body>
+</html>
